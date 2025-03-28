@@ -1,0 +1,71 @@
+---
+import Header from '../components/Header.astro';
+import '@fontsource-variable/source-code-pro';
+interface Props {
+    title: string;
+	description: string;
+}
+
+const { description, title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+
+    <body>
+        <!-- Fondo -->
+        <div class="background">
+            <div class="relative h-full w-full bg-slate-950">
+                <div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
+            </div>
+        </div>
+
+        <Header />
+        <slot /> 
+    </body>
+</html>
+
+<style is:global>
+    :root {
+        color-scheme: light dark;
+    }
+    html {
+        font-family: 'Source Code Pro Variable', monospace;
+        scroll-behavior: smooth;
+    }
+    body {
+        background: #171717;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    /* Fondo principal fijo con gradiente radial */
+    .background {
+        position: fixed; /* Fija el fondo a la pantalla */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -10; /* Asegúrate de que esté detrás del contenido */
+    }
+
+    .bg-gradient {
+        background: radial-gradient(circle 500px at 50% 200px, #3e3e3e, transparent); /* Fondo radial */
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
+</style>

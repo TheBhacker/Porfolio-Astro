@@ -1,0 +1,78 @@
+---
+const certifications = [
+  {
+    title: "Certificación en Gestión de Documentación técnica con Github y Markdown",
+    image: "../../assets/document-cert.png", // Usa una imagen de ejemplo
+    link: "../../assets/doc-tec.pdf",
+    description: "Certificación obtenida por completar el curso de desarrollo web."
+  },
+  {
+    title: "Certificación en Personalización de Entornos",
+    image: "../../assets/custom-cert.png", // Usa una imagen de ejemplo
+    link: "../../assets/custom-cert.pdf",
+    description: "Certificación obtenida por la realización de la formación de un entorno professional linux desde 0."
+  }
+];
+---
+
+<div class="grid gap-8 p-8 max-w-6xl mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-2 relative z-10">
+  {certifications.map((cert, index) => (
+    <article 
+      class="group relative bg-gray-900 rounded-2xl p-6 overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/20"
+      style={`animation-delay: ${index * 0.2}s`}
+    >
+      {/* Fondo animado */}
+      <div class="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      
+      {/* Contenedor de imagen ajustado */}
+      <div class="relative z-10 mb-6 p-4 bg-gray-800/50 rounded-xl transform transition-all duration-500 group-hover:rotate-3 group-hover:scale-105">
+        <div class="relative overflow-hidden rounded-lg">
+          <img 
+            src={cert.image} 
+            alt={cert.title} 
+            class="w-full h-[275px] object-cover rounded-lg transform transition-transform duration-500 group-hover:scale-100"
+            loading="lazy"
+            style="transform-origin: center center"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+        </div>
+      </div>
+
+      {/* Contenedor de contenido ajustado */}
+      <div class="relative z-20"> <!-- Añadido z-index mayor aquí -->
+        <h3 class="text-xl font-bold text-gray-100 mb-3">{cert.title}</h3>
+        <p class="text-gray-400 text-sm mb-6 leading-relaxed">{cert.description}</p>
+        
+        <a 
+        href={`${cert.link}#toolbar=0&navpanes=0`} 
+        class="inline-flex items-center px-6 py-3 space-x-2 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/30"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z" />
+        </svg>
+        <span>Ver Certificado</span>
+      </a>
+      </div>
+    </article>
+  ))}
+</div>
+
+<style is:global>
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  /* Efecto de seguimiento del mouse */
+  article:hover {
+    --x: calc(var(--pos-x) * 1px);
+    --y: calc(var(--pos-y) * 1px);
+  }
+</style>

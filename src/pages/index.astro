@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Badge from '../components/Badge.astro';
+import Linkedin from '../icons/Social/Linkedin.astro'
+import Github from '../icons/Social/Github.astro'
+import Social_icons from '../components/Social_icons.astro'
+import Gmail from '../icons/Social/Gmail.astro'
+import Section from '../components/Section.astro';
+import Section_tecno from '../components/Section_tecno.astro';
+import Tecnologias from '../components/Tecnologias.astro';
+import Code from '../icons/Titulos/Code.astro'
+import Proyectos from '../components/Proyectos.astro'
+import Certificados from '../components/Certificados.astro'
+import Sobre_mi from '../components/Sobre_mi.astro'
+import Cert_icon from '../icons/Titulos/Cert_icon.astro'
+import Me_icons from '../icons/Titulos/Me_icon.astro'
+import Section_sobremi from '../components/Section_sobremi.astro'
+import Footer from '../components/Footer.astro'
+import Discord from '../icons/Social/Discord.astro'
+import Section_certificados from '../components/Section_certificados.astro';
+---
+
+<Layout title="Portfolio | N3tShad0w" description="Mi objetivo es aprender y mejorar constantemente, participando en proyectos innovadores que me permitan ampliar mis conocimientos y aportar soluciones creativas y efectivas.">
+    <head>
+        <link rel="icon" href="../../assets/icon-top.png" type="image/png" />
+    </head>
+    <main class="px-4">
+        <Section>
+            <img class=" w-20 h-20 mb-4" 
+            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZzJ2cHhvamVrMjkzdmRncW92ZmhsOThydHEzN2swZGh2Z211Z3JieiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/JcDdCfQXToEOuRhVeR/giphy.webp" alt="Pietro"
+            /> 
+        <h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-5 pb-6 lg:pb-10">
+            Hola, Soy Jordi 
+            <a href="https://www.linkedin.com/in/jordi-bravo-jorquera-2b66a52b1" target="_blank" rel="noopener">
+                <div class="flex justify-center items-center ml-5">
+                    <!-- Badge con fondo verde y texto blanco por defecto, y cambio en hover -->
+                    <span class="inline-block px-4 py-2 rounded-full bg-green-800 text-white font-semibold text-sm uppercase tracking-wide shadow-lg transition-all duration-300 ease-in-out hover:bg-gray-800 hover:text-green-600">
+                        Open To Work
+                    </span>
+                </div>
+            </a></h1>
+        <h2 class="text-xl lg:text-2xl opacity-80 text-pretty max-w-{700px} text-justify">
+            <span class="text-blue-300">Técnico informático 💻</span> <br>Tengo 17 años, soy de Barcelona, <span class="text-red-500">España<img src="../../assets/ispania.png" alt="🗺️" class="inline-block w-6 h-4 align-baseline ml-2.5"></span>.  Entusiasta del<span class="text-green-500"> Hacking</span> 👨‍💻 y Fanático de Linux 🐧 Mi objetivo es ofrecerte recursos claros, intuitivos y eficaces para potenciar tus<span class="text-yellow-400"> proyectos </span>🎯🚀
+        </h2>
+        <nav class="flex gap-x-5 mt-6 flex-wrap">
+            <Social_icons href="https://www.linkedin.com/in/jordi-bravo-jorquera-2b66a52b1">
+                <Linkedin class="size-4 md:size-6"/>
+                LinkedIn
+            </Social_icons>
+            <Social_icons href="https://github.com/theBhacker">
+                <Github class="size-4 md:size-6"/>
+                GitHub
+            </Social_icons>
+            <Social_icons href="mailto:jordibravojorquera@gmail.com">
+                <Gmail class="size-4 md:size-6"/>
+                Gmail
+            </Social_icons>
+            <Social_icons href="https://discord.com/users/752530207008620583">
+                <Discord class="size-4 md:size-6"/>
+                N3tShad0w
+            </Social_icons>
+        </nav>
+        </Section>
+        <Section id="proyectos">
+            <div class="flex justify-center">
+                <h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4"> <Code class="size-8 "/>Proyectos </h2>
+            </div>
+            <Proyectos/>
+        </Section>
+        <Section_tecno id="tecnologias">
+            <Tecnologias/>
+        </Section_tecno>
+        <Section_certificados id="certificados">
+            <div class="flex justify-center">
+                <h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4"> <Cert_icon class="size-8 "/>Certificados </h2>
+            </div>
+            <Certificados/>
+        </Section_certificados>
+        <Section_sobremi id="sobre_mi">
+            <div class="flex justify-center">
+                <h2 class="text-4xl font-semibold pb-10 flex gap-x-3 items-center text-center mb-4"> <Me_icons class="size-8 "/>Sobre mí </h2>
+            </div>
+            <Sobre_mi/>
+        </Section_sobremi>
+        <Footer/>
+    </main>
+</Layout>

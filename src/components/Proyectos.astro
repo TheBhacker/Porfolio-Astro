@@ -1,0 +1,130 @@
+---
+import Html from "../icons/Tecnologias/Lenguajes/Html.astro";
+import Css from "../icons/Tecnologias/Lenguajes/Css.astro";
+import Js from "../icons/Tecnologias/Lenguajes/Js.astro";
+import Ast from "../icons/Tecnologias/Frameworks_Librerias/Ast.astro";
+import Social_icons from "./Social_icons.astro";
+import Github from "../icons/Social/Github.astro";
+import Link from "../icons/Social/Link.astro";
+import Tailwind from "../icons/Tecnologias/Frameworks_Librerias/Tailwind.astro"
+import Bash from "../icons/Tecnologias/Lenguajes/Bash.astro";
+
+const TAGS = {
+  Html: {
+    name: "Html",
+    class: "bg-[#963419] text-white",
+    icon: Html,
+  },
+  Css: {
+    name: "Css",
+    class: "bg-[#07436b] text-white",
+    icon: Css,
+  },
+  Js: {
+    name: "Js",
+    class: "bg-[#a39535] text-white",
+    icon: Js,
+  },
+  Astro: {
+    name: "Astro",
+    class: "bg-[#CCCCCC] text-black", // Cambiado a negro
+    icon: Ast,
+  },
+  Tailwind: {
+    name: "Tailwind",
+    class: "bg-[#1c7777] text-white",
+    icon: Tailwind,
+  },
+  Bash: {
+    name: "Bash",
+    class: "bg-[#000000] text-white",
+    icon: Bash,
+    },
+};
+
+const PROJECTS = [
+  {
+    title: "Porfolio",
+    description: "Este es mi portafolio personal donde muestro mis proyectos y habilidades en desarrollo web",
+    link: "https://thebhacker.github.io/Porfolio-Web",
+    github: "https://github.com/theBhacker/Porfolio-Web",
+    image: "https://github.com/user-attachments/assets/24df78c8-ec86-460e-9ea7-87704ac4354e",
+    tags: [TAGS.Tailwind, TAGS.Css, TAGS.Astro],
+  },
+  {
+
+    title: "Bandit-Levels",
+    description: "Bandit es un juego de captura de la bandera (CTF) diseñado para enseñar conceptos básicos de seguridad informática. A través de una serie de niveles, aprenderás a usar comandos de terminal, explorar archivos ocultos, manejar permisos y mucho más",
+    link: "https://thebhacker.github.io/Bandit-Levels/Bandit-Web",
+    github: "https://github.com/theBhacker/Bandit-Levels ",
+    image: "https://github.com/user-attachments/assets/605dab7a-4319-4cf1-a98a-4d7f2e34d143",
+    tags: [TAGS.Html, TAGS.Css, TAGS.Js],
+  },
+  {
+    title: "Custom-Bspwm",
+    description: "Este repositorio contiene un script y configuraciones personalizadas para configurar un entorno minimalista y funcional con bspwm, sxhkd, zsh, picom, y polybar en Kali Linux.",
+    github: "https://github.com/theBhacker/Custom-Bspwm",
+    image: "https://github.com/TheBhacker/Custom-Bspwm/blob/main/Preview/preview1.png?raw=true",
+    tags: [TAGS.Bash],
+  },
+  {
+    title: "Mediateca",
+    description: "Web de una mediateca tecnológica creada con HTML, CSS y JavaScript, diseñada para ofrecer recursos educativos y tecnológicos con un diseño moderno, navegación intuitiva e interactividad avanzada",
+    link: "thebhacker.github.io/Mediateca",
+    github: "https://github.com/theBhacker/Mediateca",
+    image: "https://raw.githubusercontent.com/TheBhacker/Mediateca/refs/heads/main/imagenes/landing.png",
+    tags: [TAGS.Html, TAGS.Css, TAGS.Js],
+  },
+];
+---
+
+<div class="flex flex-col gap-y-16 text-pretty margin-[20px]">
+  {PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col md:flex-row md:space-x-8 space-y-8 md:space-y-0">
+      <div class="w-full md:w-1/2 flex items-center group">
+        <div class="relative flex flex-col items-center transition duration-500 transform hover:scale-110 shadow-xl overflow-hidden rounded-xl sm:rounded-xl lg:border lg:border-gray-800 group-hover:shadow-2xl">
+          <img 
+              alt="Captura del Proyecto" 
+              class="object-cover object-top w-full h-full transition duration-500 transform hover:scale-110" 
+              loading="lazy" 
+              src={image} 
+          />
+
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 flex flex-col justify-center">
+        <h3 class="text-2xl font-bold mb-2">{title}</h3>
+        <div class="flex flex-wrap mt-2">
+          <ul class="flex flex-row mb-2 gap-x-2">
+            {tags.map((tag) => (
+              <li = {tag.name}>
+                <span class={`tag flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 transition-transform duration-300 transform hover:scale-110`}>
+                  <tag.icon class="size-4" />
+                  {tag.name}
+                </span> 
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="mt-2 text-lg mb-4">{description}</div>
+
+        <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <Social_icons href={github}>
+              <Github class="size-6" />
+              Code
+            </Social_icons>
+          )}
+          {link && (
+            <Social_icons href={link}>
+              <Link class="size-4" />
+              Preview
+            </Social_icons>
+          )}
+        </footer>
+      </div>
+    </article>
+  ))}
+</div>
